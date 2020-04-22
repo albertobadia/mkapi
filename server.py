@@ -4,7 +4,7 @@ from librouteros.login import plain
 from flask import Flask
 from flask_restful import Resource, Api
 
-MK = connect(host='172.31.0.1', username='bctm', password='EPsystems7', port=65000, login_methods=plain)
+MK = connect(host='main.server', username='bctm', password='EPsystems7', port=65000, login_methods=plain)
 path = MK.path("")
 
 app = Flask(__name__)
