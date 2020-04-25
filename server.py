@@ -77,7 +77,7 @@ class TempMk:
     def ping(self, address):
         if self.is_connected:
             self.last_activity = time()
-            return tuple(self.path("ping", **{"address": address, "count": "1"}))
+            return tuple(self.path("ping", **{"address": address, "count": "1"}))[0]
         else:
             return {"error": self.error}
 
