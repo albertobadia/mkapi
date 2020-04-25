@@ -1,14 +1,17 @@
+import os
 from time import sleep, time
-
+from threading import Thread
 from librouteros import connect
 from librouteros.login import plain
-
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
 
-from threading import Thread
+MAIN_HOST = os.environ.get("MAIN_HOST")
+MAIN_USERNAME = os.environ.get("MAIN_USERNAME")
+MAIN_PASSWORD = os.environ.get("MAIN_PASSWORD")
+MAIN_PORT = os.environ.get("MAIN_PORT")
 
-MK = connect(host='main.server', username='bctm', password='EPsystems7', port=65000, login_methods=plain)
+MK = connect(host=MAIN_HOST, username=MAIN_USERNAME, password=MAIN_PASSWORD, port=MAIN_PORT, login_methods=plain)
 path = MK.path("")
 
 app = Flask(__name__)
