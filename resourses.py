@@ -2,8 +2,8 @@ from librouteros.query import Key
 from flask_restful import Resource
 from mk import MK
 
-name = Key('name')
-rate = Key('rate')
+key_name = Key('name')
+key_rate = Key('rate')
 
 
 class Ping(Resource):
@@ -18,9 +18,9 @@ class Ping(Resource):
 
 
 class QueueTraffic(Resource):
-    def get(self, _name):
+    def get(self, name):
         try:
-            return MK.path("/queue/simple").select(rate).where(name == _name)
+            return MK.path("/queue/simple").select(key_rate).where(key_name == name)
 
         except Exception as e:
             print(e)
