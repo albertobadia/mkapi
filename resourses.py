@@ -19,9 +19,8 @@ class Ping(Resource):
 class QueueTraffic(Resource):
     def get(self, name):
         try:
-            result = MK.path("/queue/simple").select(key_rate).where(key_name == name)
-            print(result)
-            return result
+            for row in MK.path("/queue/simple").select(key_rate).where(key_name == name):
+                return row
         except Exception as e:
             print(e)
             exit()
