@@ -20,10 +20,12 @@ class QueueTraffic(Resource):
     def get(self, name):
         try:
             result = False
-            for row in MK.path("/queue/simple").select(key_rate).where(key_name == name):
-                result = row
-                break
-            MK.path("interface")
+
+            while not result:
+                for row in MK.path("/queue/simple").select(key_rate).where(key_name == name):
+                    if row:
+                        result = row
+
             return result
         except Exception as e:
             print(e)
