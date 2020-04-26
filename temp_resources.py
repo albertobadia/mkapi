@@ -2,6 +2,7 @@ from threading import Thread
 from time import time, sleep
 from flask_restful import Resource
 from temp_mk import TempMk
+from parser import PARSER
 
 TEMP_MK_LIST = {}
 
@@ -25,9 +26,9 @@ class TempCleaner(Thread):
             sleep(30)
 
 
-class Ping(Resource):
+class TempPing(Resource):
     def get(self):
-        args = PARSER.parse_args()
+        args = PARSER.parser.parse_args()
         host = args['host']
         username = args['username']
         password = args['password']
