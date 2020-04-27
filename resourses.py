@@ -31,7 +31,7 @@ class Ping2(Resource):
                 data["interface"] = interface
 
             path = MK.path("")
-            return tuple(path("ping", **{"address": address, "count": "1"}))[0]
+            return tuple(path("ping", **data))[0]
         except Exception as e:
             print(e)
             exit()
