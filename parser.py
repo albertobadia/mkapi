@@ -12,7 +12,6 @@ class PARSER:
         self.parser.add_argument('address', type=str)
         self.parser.add_argument('name', type=str)
         self.parser.add_argument('interface', type=str)
-        self.parser.add_argument('arp_ping', type=str)
 
 
 P = PARSER()

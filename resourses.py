@@ -17,20 +17,13 @@ class Ping(Resource):
             exit()
 
 
-class Ping2(Resource):
+class ArpPing(Resource):
     def get(self):
         try:
             args = P.parser.parse_args()
             address = args.get("address")
             interface = args.get("interface")
-            arp_ping = args.get("arp_ping")
-
-            data = {"address": address, "count": "1"}
-            if arp_ping == "yes":
-                print("here")
-                data["arp-ping"] = "yes"
-                data["interface"] = interface
-
+            data = {"address": address, "count": "1", "arp-ping": "yes", "interface": interface}
             path = MK.path("")
             return tuple(path("ping", **data))[0]
         except Exception as e:
