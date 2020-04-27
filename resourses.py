@@ -27,7 +27,7 @@ class Ping2(Resource):
 
             data = {"address": address, "count": "1"}
             if arp_ping == "yes":
-                data["arp_ping"] = "yes"
+                data["arp-ping"] = "yes"
                 data["interface"] = interface
 
             path = MK.path("")
