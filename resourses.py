@@ -27,6 +27,7 @@ class Ping2(Resource):
 
             data = {"address": address, "count": "1"}
             if arp_ping == "yes":
+                print("here")
                 data["arp-ping"] = "yes"
                 data["interface"] = interface
 
