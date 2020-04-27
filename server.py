@@ -10,6 +10,7 @@ cleaner = temp_resources.TempCleaner()
 cleaner.start()
 
 api.add_resource(resourses.Ping, "/ping/<address>")
+api.add_resource(resourses.Ping2, "/tool/ping")
 api.add_resource(temp_resources.TempPing, "/temp/ping")
 api.add_resource(resourses.QueueTraffic, "/queue/traffic/<name>")
 
