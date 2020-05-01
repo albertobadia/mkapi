@@ -11,7 +11,10 @@ cleaner.start()
 
 api.add_resource(resourses.Ping, "/ping/<address>")
 api.add_resource(resourses.ArpPing, "/pingarp")
+
 api.add_resource(temp_resources.TempPing, "/temp/ping")
+api.add_resource(temp_resources.TempInterfaceTraffic, "/temp/interface/traffic")
+
 api.add_resource(resourses.QueueTraffic, "/queue/traffic/<name>")
 
 if __name__ == "__main__":

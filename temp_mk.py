@@ -40,3 +40,14 @@ class TempMk:
             return tuple(self.path("ping", **{"address": address, "count": "1"}))[0]
         else:
             return {"error": self.error}
+
+    def get_interface_traffic(self, interface=False):
+        if self.is_connected:
+            if interface:
+                path_interfaces = self.api.path("interface")
+                traffic = tuple(path_interfaces('monitor-traffic', **{'duration': 1, 'interface': interface}))
+                return traffic[0]
+            else:
+                return {"error": "Not obtain interface name"}
+        else:
+            return {"error": self.error}

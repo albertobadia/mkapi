@@ -41,3 +41,20 @@ class TempPing(Resource):
         else:
             TEMP_MK_LIST[host] = TempMk(host=host, username=username, password=password, port=port)
             return TEMP_MK_LIST[host].ping(address=address)
+
+
+class TempInterfaceTraffic(Resource):
+    def get(self):
+        args = P.parser.parse_args()
+        host = args['host']
+        username = args['username']
+        password = args['password']
+        port = args['port']
+        interface = args.get("interface")
+
+        temp_mk = TEMP_MK_LIST.get(host)
+        if temp_mk:
+            return temp_mk.get_interface_traffic(interface=interface)
+        else:
+            TEMP_MK_LIST[host] = TempMk(host=host, username=username, password=password, port=port)
+            return TEMP_MK_LIST[host].get_interface_traffic(interface=interface)
