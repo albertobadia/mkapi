@@ -12,4 +12,4 @@ COPY . /code/
 
 EXPOSE 5000
 
-CMD python server.py
+CMD gunicorn --workers 5 --bind 0.0.0.0:5000 server:app

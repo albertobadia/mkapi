@@ -1,4 +1,3 @@
-from gevent.pywsgi import WSGIServer
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
@@ -22,5 +21,4 @@ api.add_resource(temp_resources.TempInterfaceTraffic, "/temp/interface/traffic")
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 if __name__ == "__main__":
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
-    http_server.serve_forever()
+    app.run(host='0.0.0.0')
