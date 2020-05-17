@@ -51,3 +51,11 @@ class TempMk:
                 return {"error": "Not obtain interface name"}
         else:
             return {"error": self.error}
+
+    def get_wireless(self):
+        if self.is_connected:
+            path_wireless = self.api.path("interface", "wireless")
+            wireless = tuple(path_wireless)
+            return wireless[0]
+        else:
+            return {"error": self.error}
