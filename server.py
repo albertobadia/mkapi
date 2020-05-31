@@ -18,6 +18,7 @@ api.add_resource(resources.QueueTraffic, "/queue/traffic/<name>")
 api.add_resource(temp_resources.TempPing, "/temp/ping")
 api.add_resource(temp_resources.TempInterfaceTraffic, "/temp/interface/traffic")
 api.add_resource(temp_resources.TempWireless, "/temp/wireless")
+api.add_resource(temp_resources.TempWirelessRegtable, "/temp/wireless/regtable")
 
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})

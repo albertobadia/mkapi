@@ -74,3 +74,19 @@ class TempWireless(Resource):
         else:
             TEMP_MK_LIST[host] = TempMk(host=host, username=username, password=password, port=port)
             return TEMP_MK_LIST[host].get_wireless()
+
+
+class TempWirelessRegtable(Resource):
+    def get(self):
+        args = P.parser.parse_args()
+        host = args['host']
+        username = args['username']
+        password = args['password']
+        port = args['port']
+
+        temp_mk = TEMP_MK_LIST.get(host)
+        if temp_mk:
+            return temp_mk.get_wireless_regtable()
+        else:
+            TEMP_MK_LIST[host] = TempMk(host=host, username=username, password=password, port=port)
+            return TEMP_MK_LIST[host].get_wireless_regtable()

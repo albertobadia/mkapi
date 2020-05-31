@@ -59,3 +59,10 @@ class TempMk:
             return wireless[0]
         else:
             return {"error": self.error}
+
+    def get_wireless_regtable(self):
+        if self.is_connected:
+            path = self.api.path("/interface/wireless/registration-table")
+            return tuple(path)[0]
+        else:
+            return {"error": self.error}
