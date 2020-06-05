@@ -39,7 +39,7 @@ class TempMk:
             self.last_activity = time()
             return tuple(self.path("ping", **{"address": address, "count": "1"}))[0]
         else:
-            return {"error": self.error}
+            exit()
 
     def get_interface_traffic(self, interface=False):
         if self.is_connected:
@@ -50,7 +50,7 @@ class TempMk:
             else:
                 return {"error": "Not obtain interface name"}
         else:
-            return {"error": self.error}
+            exit()
 
     def get_wireless(self):
         if self.is_connected:
@@ -58,11 +58,11 @@ class TempMk:
             wireless = tuple(path_wireless)
             return wireless[0]
         else:
-            return {"error": self.error}
+            exit()
 
     def get_wireless_regtable(self):
         if self.is_connected:
             path = self.api.path("/interface/wireless/registration-table")
             return tuple(path)[0]
         else:
-            return {"error": self.error}
+            exit()
